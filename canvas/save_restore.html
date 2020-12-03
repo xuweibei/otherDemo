@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="c" width="600" height="600"></canvas>
+    <script>
+      const c = document.getElementById('c');
+      const cG = c.getContext('2d');
+
+      cG.save();
+      cG.beginPath();
+      cG.fillStyle = 'red';
+      cG.moveTo(100, 100);
+      cG.lineTo(200, 200);
+      cG.lineTo(300, 200);
+      cG.fill();
+      cG.restore();
+
+      //save和restore类似于增加了一个作用域，fillStyle的样式就只在第一个图形中生效了
+
+      cG.beginPath();
+      cG.moveTo(100, 200);
+      cG.lineTo(200, 300);
+      cG.lineTo(300, 300);
+      cG.fill();
+    </script>
+  </body>
+</html>

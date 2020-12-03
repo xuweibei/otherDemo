@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="c" width="600" height="600"></canvas>
+    <script>
+      const c = document.getElementById('c');
+      const cG = c.getContext('2d');
+      c.onmousedown = function (e) {
+        const ev = e || window.event;
+        cG.moveTo(ev.clientX - c.offsetLeft, ev.clientY - c.offsetTop);
+        document.onmousemove = function (e) {
+          const ev = e || window.event;
+          cG.lineTo(ev.clientX - c.offsetLeft, ev.clientY - c.offsetTop);
+          cG.stroke();
+        };
+        document.onmouseup = function (e) {
+          document.onmousedown = document.onmousemove = null;
+        };
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="c" width="600" height="600"></canvas>
+    <script>
+      const c = document.getElementById('c');
+      const cG = c.getContext('2d');
+      cG.beginPath();
+      cG.fillStyle = 'red';
+      cG.moveTo(100, 100);
+      cG.lineTo(200, 200);
+      cG.lineTo(300, 200);
+      cG.closePath(); //闭合
+      cG.fill();
+    </script>
+  </body>
+</html>

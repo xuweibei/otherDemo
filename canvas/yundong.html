@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="c" width="600" height="600"></canvas>
+
+    <script>
+      const c = document.getElementById('c');
+      const cG = c.getContext('2d');
+      var num = 0;
+      cG.fillRect(0, 0, 100, 100);
+      setTimeout(() => {
+        num++;
+        cG.clearRect(0, 0, 10, c.height / 9); //清除的开始的横轴点/清除的开始的竖轴点/需要清除的宽的距离/需要清除的高的距离
+        // cG.fillRect(num, num, 100, 100);
+      }, 30);
+    </script>
+  </body>
+</html>
