@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="lala" width="600" height="600"></canvas>
+    <script>
+      const lala = document.getElementById('lala');
+      const lalaG = lala.getContext('2d');
+      const obj = lalaG.createRadialGradient(100, 100, 50, 100, 100, 60);
+      //前三个是第一个圆的坐标和半径，后三个是第二个圆的坐标和半径
+      obj.addColorStop(0, 'red');
+      obj.addColorStop(1, 'yellow');
+      lalaG.fillStyle = obj;
+      lalaG.fillRect(0, 0, lala.width, lala.height);
+    </script>
+  </body>
+</html>

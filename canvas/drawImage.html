@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="draw" width="600" height="600"></canvas>
+    <script>
+      const draw = document.getElementById('draw');
+      const drawG = draw.getContext('2d');
+      function showImg() {
+        const img = new Image();
+        img.src = '../imgs/1.jpg';
+        img.onload = function () {
+          dr(this);
+        };
+        function dr(data) {
+          drawG.drawImage(data, 0, 0, 80, 80);
+        }
+      }
+      showImg();
+    </script>
+  </body>
+</html>

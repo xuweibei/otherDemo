@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="time" width="600" height="600"></canvas>
+    <script>
+      const time = document.getElementById('time');
+      const timeG = time.getContext('2d');
+      function toDrow() {
+        timeG.clearRect(0, 0, time.width, time.height);
+        const date = new Date();
+        const oHouse = date.getHours();
+        const oMin = date.getMinutes();
+        const oSen = date.getSeconds();
+        const h = ((-90 + oHouse * 30 + oMin / 2) * Math.PI) / 180;
+        const m = ((-90 + oMin * 6) * Math.PI) / 180;
+        const s = ((-90 + oSen * 6) * Math.PI) / 180;
+
+        timeG.beginPath();
+        for (let i = 0; i < 60; i++) {
+          timeG.moveTo(200, 200);
+          timeG.arc(
+            200,
+            200,
+            150,
+            (6 * i * Math.PI) / 180,
+            (6 * (i + 1) * Math.PI) / 180
+          );
+        }
+        timeG.stroke();
+
+        timeG.beginPath();
+        timeG.fillStyle = 'white';
+        timeG.moveTo(200, 200);
+        timeG.arc(200, 200, 140, 0, (360 * Math.PI) / 180, true);
+        timeG.fill();
+        timeG.closePath();
+
+        timeG.beginPath();
+        timeG.lineWidth = 3;
+        for (let i = 0; i < 12; i++) {
+          timeG.moveTo(200, 200);
+          timeG.arc(
+            200,
+            200,
+            150,
+            (30 * i * Math.PI) / 180,
+            (30 * (i + 1) * Math.PI) / 180,
+            true
+          );
+        }
+        timeG.stroke();
+        timeG.closePath();
+
+        timeG.beginPath();
+        timeG.moveTo(200, 200);
+        timeG.arc(200, 200, 130, 0, (360 * Math.PI) / 180, true);
+        timeG.fill();
+        timeG.closePath();
+
+        timeG.beginPath();
+        timeG.lineWidth = 3;
+        timeG.moveTo(200, 200);
+        timeG.arc(200, 200, 80, h, h);
+        timeG.stroke();
+        timeG.closePath();
+
+        timeG.beginPath();
+        timeG.lineWidth = 2;
+        timeG.moveTo(200, 200);
+        timeG.arc(200, 200, 110, m, m);
+        timeG.stroke();
+        timeG.closePath();
+
+        timeG.beginPath();
+        timeG.moveTo(200, 200);
+        timeG.lineWidth = 1;
+        timeG.arc(200, 200, 120, s, s);
+        timeG.stroke();
+        timeG.closePath();
+      }
+      toDrow();
+
+      setInterval(toDrow, 1000);
+    </script>
+  </body>
+</html>

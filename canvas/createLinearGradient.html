@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="lala" width="600" height="600"> </canvas>
+    <script>
+      const lala = document.getElementById('lala');
+      const lalaG = lala.getContext('2d');
+      const obj = lalaG.createLinearGradient(150, 100, 150, 200); // 150和100表示第一个点，150和200表示第二个点
+      obj.addColorStop(0, 'red'); //0表示百分比 0 - 1表示一个区间
+      obj.addColorStop(0.5, 'pink');
+      obj.addColorStop(1, 'yellow');
+      lalaG.fillStyle = obj;
+      lalaG.fillRect(150, 100, 100, 100);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="time" width="600" height="600"></canvas>
+
+    <script>
+      const time = document.getElementById('time');
+      const timeG = time.getContext('2d');
+      timeG.moveTo(200, 200);
+      timeG.arc(200, 200, 150, 0, (360 * Math.PI) / 180);
+      timeG.stroke();
+    </script>
+  </body>
+</html>
