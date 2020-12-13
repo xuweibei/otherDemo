@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: black;
+      }
+      #lala {
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="lala" width="400" height="400"></canvas>
+    <img id="img" />
+    <script>
+      const lala = document.getElementById('lala');
+      const img = document.getElementById('img');
+      const lalaG = lala.getContext('2d');
+
+      const c1 = new Shape(100, 100, 50);
+      const c2 = new Shape(200, 200, 50);
+
+      lala.onmousedown = function (ev) {
+        const e = ev || window.event;
+        const point = {
+          x: e.clientX - lala.offsetLeft,
+          y: e.clientY - lala.offsetTop,
+        };
+        c1.reDrow(point);
+        c2.reDrow(point);
+      };
+
+      c1.click = function () {
+        alert(123);
+      };
+      c2.click = function () {
+        alert(456);
+      };
+
+      function Shape(x, y, r) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        lalaG.beginPath();
+        lalaG.arc(this.x, this.y, this.r, 0, (360 * Math.PI) / 180);
+        lalaG.closePath();
+        lalaG.stroke();
+      }
+
+      Shape.prototype.reDrow = function (point) {
+        lalaG.beginPath();
+        lalaG.arc(this.x, this.y, this.r, 0, (360 * Math.PI) / 180);
+        lalaG.closePath();
+        lalaG.stroke();
+        if (lalaG.isPointInPath(point.x, point.y)) {
+          this.click();
+        }
+      };
+
+      //jcanvascript
+    </script>
+  </body>
+</html>

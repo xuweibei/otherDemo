@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: black;
+      }
+      #lala {
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="lala" width="400" height="400"></canvas>
+    <img id="img" />
+    <script>
+      const lala = document.getElementById('lala');
+      const img = document.getElementById('img');
+      const lalaG = lala.getContext('2d');
+      lalaG.fillRect(0, 0, 100, 100);
+      lalaG.fillStyle = 'red';
+      lalaG.globalAlpha = 0.5;
+      lalaG.fillRect(50, 50, 100, 100);
+      img.src = lala.toDataURL(); //一个为base64位的值
+    </script>
+  </body>
+</html>
