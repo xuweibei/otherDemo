@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+			Map是一个类似于对象的数据类型  ‘键控集合’
+			*/
+      //声明形式1
+      const m = new Map([
+        ['name', '张三'],
+        ['age', '18'],
+      ]);
+      console.log(m);
+      //声明形式2
+      const l = new Map();
+      l.set('name', '张三');
+      // console.log(l.get('name')); //获取方法
+      // console.log(m.delete('name')); //删除方法
+      // console.log(m.clear()); //清除数据类型
+      // console.log(m.has('name')); //判断是否包含
+      m.forEach((item, key) => {
+        console.log(item, key);
+      });
+      console.log(m.keys());
+      for (let key of m.keys()) {
+        console.log(key);
+      }
+      //entries,values,keys
+    </script>
+  </body>
+</html>

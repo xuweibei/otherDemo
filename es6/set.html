@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+			Set是新的数据结构，类似于数组，但这个的成员的值都是唯一的，无重复
+			*/
+
+      const set = new Set();
+      console.log(set.size); //常用的属性就一个 size，表示内部的成员数量
+
+      set.add(1);
+      const a = set.delete(1); //删除成员，如果成功删除返回true，否则返回false
+      const b = set.has(1); //判断内部中包含的是否有对应成员，
+
+      set.add(123);
+      set.clear(); //清空操作
+      // console.log(a, b, set);
+
+      const demo = new Set(['red', 'green', 'blue']);
+      console.log(demo.keys(), demo.values(), demo.entries());
+      demo.forEach((item, index, l) => {
+        console.log(item, index, l);
+      });
+    </script>
+  </body>
+</html>
