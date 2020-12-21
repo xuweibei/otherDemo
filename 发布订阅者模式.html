@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var shoeObj = {};
+      shoeObj.list = [];
+
+      shoeObj.listen = function (key, fn) {
+        if (!this.list[key]) {
+          this.list[key] = [];
+        }
+        shoeObj.list[key].push(fn);
+      };
+
+      shoeObj.trigger = function () {
+        var key = Array.prototype.shift.call(arguments);
+        var fns = this.list[key];
+        // if (!fns || fns.length === 0) {
+        //   return;
+        // }
+        for (var i = 0, fn; (fn = fns[i++]); ) {
+          console.log(fn, '是的李开复');
+          fn.apply(this, arguments);
+        }
+      };
+
+      shoeObj.listen('red', function (color, size) {
+        console.log('颜色是：' + color);
+        console.log('尺码是：' + size);
+        return 1;
+      });
+
+      shoeObj.listen('black', function (color, size) {
+        console.log('再次打印颜色是：' + color);
+        console.log('再次打印尺码是：' + size);
+        return 2;
+      });
+
+      console.log(this.shoeObj);
+      shoeObj.trigger('red', '红色', 40);
+      shoeObj.trigger('black', '黑色', 42);
+    </script>
+  </body>
+</html>
